@@ -1,1 +1,1 @@
-# pantoneBook
+# pantone
