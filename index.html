@@ -9,7 +9,12 @@
 </head>
 
 <body>
-  <h2>潘通色</h2>
+  <h2>根据RGB进行查询潘通色</h2>
+  R <input id="rColor" />
+  G <input id="gColor" />
+  B <input id="bColor" />
+  <button onClick="getPantoneByRgb()">查询</button><br /><br />
+  查询的结果：<span id="result"></span>
   <script>
     const pantone = {
       hue000: [{
@@ -42955,6 +42960,32 @@
       return item;
     }, []);
     console.log(ret);
+
+    function getPantoneByRgb() {
+      const r = $('rColor').value;
+      const g = $('gColor').value;
+      const b = $('bColor').value;
+      // if (!r || !g || !b) {
+      //   alert('rgb的值不能为空');
+      //   return;
+      // }
+      console.log(r);
+      console.log(g);
+      console.log(b);
+      $('result').innerText = '';
+      for(let i = 0; i < ret.length; i++) {
+        const rgb = ret[i].rgb;
+        if(rgb.r == r && rgb.g == g && rgb.b == b) {
+          console.log('33333')
+          $('result').innerText = ret[i].name;
+          break;
+        }
+      }
+    }
+
+    function $(id) {
+      return document.getElementById(id)
+    }
 
   </script>
 </body>
