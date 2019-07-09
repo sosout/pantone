@@ -42949,6 +42949,108 @@
       return [...prev, ...pantone[next]];
     }, []);
     console.log(ret);
+    const schemes = [{
+      name: 'hue000',
+      rgb: {
+        r: 255, 
+        g: 32, 
+        b: 0
+      }
+    }, {
+      name: 'hue001',
+      rgb: {
+        r: 255, 
+        g: 89, 
+        b: 0
+      }
+    }, {
+      name: 'hue002',
+      rgb: {
+        r: 255, 
+        g: 136, 
+        b: 0
+      }
+    }, {
+      name: 'hue003',
+      rgb: {
+        r: 255, 
+        g: 193, 
+        b: 0
+      }
+    }, {
+      name: 'hue004',
+      rgb: {
+        r: 125, 
+        g: 255, 
+        b: 0
+      }
+    }, {
+      name: 'hue005',
+      rgb: {
+        r: 0, 
+        g: 255, 
+        b: 140
+      }
+    }, {
+      name: 'hue006',
+      rgb: {
+        r: 0, 
+        g: 191, 
+        b: 255
+      }
+    }, {
+      name: 'hue007',
+      rgb: {
+        r: 0, 
+        g: 11, 
+        b: 255
+      }
+    }, {
+      name: 'hue008',
+      rgb: {
+        r: 255, 
+        g: 0, 
+        b: 251
+      }
+    }, {
+      name: 'hue009',
+      rgb: {
+        r: 255, 
+        g: 0, 
+        b: 49
+      }
+    }, {
+      name: 'hue010',
+      rgb: {
+        r: 230, 
+        g: 230, 
+        b: 230
+      }
+    }, {
+      name: 'hue011',
+      rgb: {
+        r: 128, 
+        g: 128, 
+        b: 128
+      }
+    }, {
+      name: 'hue012',
+      rgb: {
+        r: 0, 
+        g: 0, 
+        b: 0
+      }
+    }];
+
+    let back = [];
+    schemes.forEach(item => {
+      for(let i = 0; i < pantone[item.name].length; i++) {
+        pantone[item.name][i].scheme = item;
+        back.push(pantone[item.name][i]);
+      }
+    })
+
+    console.log(back.length);
 
     ret = ret.slice(0).sort(function(e, t) {
       return e.positionInBook - t.positionInBook;
@@ -42976,7 +43078,6 @@
       for(let i = 0; i < ret.length; i++) {
         const rgb = ret[i].rgb;
         if(rgb.r == r && rgb.g == g && rgb.b == b) {
-          console.log('33333')
           $('result').innerText = ret[i].name;
           break;
         }
