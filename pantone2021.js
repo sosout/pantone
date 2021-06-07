@@ -1,2 +1,0 @@
-const pantone2021 = [];
-

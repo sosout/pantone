@@ -23,6 +23,7 @@
       hue003: [],
       hue004: [],
       hue005: [],
+      hue006: [],
       hue007: [],
       hue008: [],
       hue009: [],
@@ -30,6 +31,104 @@
       hue011: [],
       hue012: []
     };
+
+    let ret = Object.keys(pantone).reduce((prev, next) => {
+      return [...prev, ...pantone[next]];
+    }, []);
+    console.log(ret);
+
+    const schemes = [{
+      name: 'hue000',
+      rgb: {
+        r: 255,
+        g: 32,
+        b: 0
+      }
+    }, {
+      name: 'hue001',
+      rgb: {
+        r: 255,
+        g: 89,
+        b: 0
+      }
+    }, {
+      name: 'hue002',
+      rgb: {
+        r: 255,
+        g: 136,
+        b: 0
+      }
+    }, {
+      name: 'hue003',
+      rgb: {
+        r: 255,
+        g: 193,
+        b: 0
+      }
+    }, {
+      name: 'hue004',
+      rgb: {
+        r: 125,
+        g: 255,
+        b: 0
+      }
+    }, {
+      name: 'hue005',
+      rgb: {
+        r: 0,
+        g: 255,
+        b: 140
+      }
+    }, {
+      name: 'hue006',
+      rgb: {
+        r: 0,
+        g: 191,
+        b: 255
+      }
+    }, {
+      name: 'hue007',
+      rgb: {
+        r: 0,
+        g: 11,
+        b: 255
+      }
+    }, {
+      name: 'hue008',
+      rgb: {
+        r: 255,
+        g: 0,
+        b: 251
+      }
+    }, {
+      name: 'hue009',
+      rgb: {
+        r: 255,
+        g: 0,
+        b: 49
+      }
+    }, {
+      name: 'hue010',
+      rgb: {
+        r: 230,
+        g: 230,
+        b: 230
+      }
+    }, {
+      name: 'hue011',
+      rgb: {
+        r: 128,
+        g: 128,
+        b: 128
+      }
+    }, {
+      name: 'hue012',
+      rgb: {
+        r: 0,
+        g: 0,
+        b: 0
+      }
+    }];
 
     let back = [];
     schemes.forEach(item => {
@@ -50,7 +149,7 @@
       hash[next.code] ? '' : hash[next.code] = true && item.push(next);
       return item;
     }, []);
-    
+
     console.log(JSON.stringify(ret));
 
     function getPantoneByRgb() {
